@@ -1,9 +1,10 @@
 import { Modal, Button, ListGroup } from "react-bootstrap";
 import emailjs from "@emailjs/browser";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 const ContactForm = () => {
+  const form = useRef();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -168,7 +169,7 @@ const ContactForm = () => {
               </Modal>
             </div>
           </div>
-          <form onSubmit={sendEmail}>
+          <form ref={form} onSubmit={sendEmail}>
             <div className="col-lg-12 col-md-12 form-group mx-auto">
               <div
                 className="alert alert-info py-1"
